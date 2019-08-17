@@ -40,17 +40,17 @@ Neural networks themselves are differentiable with respect to their inputs. To d
 ## Feature Visualization Methods
 The methods implemented in this feature visualization tool derive from various techniques of backpropagating and calculating for gradients.
 
-#### Plain "Vanilla" Gradients
+### Plain "Vanilla" Gradients
 This gradient-based saliency technique is based on the paper, [Deep Inside Convolutional Networks: Visualising
 Image Classification Models and Saliency Maps ](https://arxiv.org/pdf/1312.6034.pdf). Given a prediction output, we map it back to the input pixel space to generate a saliency map by calculate the derviative of the class score with respect to the input image pixels. The value indicates which pixels are most sensitive to the class prediction score.
 
-#### Integrated Gradients
+### Integrated Gradients
 Another gradient-based saliency technique, Integrated Gradients based on the paper, [Axiomatic Attribution for Deep Networks](https://arxiv.org/abs/1703.01365), calculates the integral of gradients along a uniform scale of varying pixel intesities to measure how influential a given pixels is with respect to our class prediction score. For this project, we start with a baseline image of all pixel values of 0 (black image) and uniformly scale this baseline image to the input image while uniformly scaling these pixel intensities, alpha. This straight-line path, as compared to most non-linear attribution methods, is used to measure how a single feature changes by calculating a Riemann sum to approximate the integral of these values. Note the default value of steps is set to 20, but the paper above notes that 20 to 300 steps are most appropriate for integral approximation.
 
-#### Guided Backpropagation
+### Guided Backpropagation
 With guided backpropagation, originating from [Striving For Simplicity: The All Convolutional Net](https://arxiv.org/pdf/1412.6806.pdf), we only backpropagate on positive gradients, thus indicating which input image pixels led to a positive class prediction. By backpropagating this way, we ignore irrelevant information, as in input pixels with corresponding negative gradients which led to a negative class prediction. 
 
-#### Visual Backpropagation
+### Visual Backpropagation
 This value-based method, as discussed in [VisualBackProp: efficient visualization of CNNs](https://arxiv.org/pdf/1611.05418.pdf), uses the concept of a deconvolutional network elaborated in Matthew D. Zeiler & Rob Fergus's paper, [Visualizing and Understanding Convolutional Networks](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf). The motivation behind the technique described in the VisualBackProp paper lies in the intuition that as we move further along a deep convolutional network, we lose important information. To counteract this loss of information, VisualBackProp considers the output of each convolutional layer, the feature maps, as points where the model holds the most relevant information. Following a single forward pass, we use a deconvolutional network along with VisualBackProp to map the feature maps of the last convolutional layer back to those of the first convolutional layers. With this method, we are able to preserve key information about the input, since we look at the feature maps of each convolutional layer throughout the network rather than mapping a single output layer back to the input pixel space. In terms of technical details, as a brief overview, we calculate the average of the feature maps following each LeakyReLU layer, then we use deconvolution to upsample and scale the resulting product to the size of the feature maps of the previous layer. This continues until we reach the input pixel space. Note that the implementation discussed in the VisualBackProp paper has been modified for YOLOv3, in which I not only upsample via deconvolution, but I also downsample via AveragePool2D if the network backpropagates through Upsample2D layers. 
 
 ### Resources
