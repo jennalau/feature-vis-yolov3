@@ -1,5 +1,6 @@
 # Interpretable Feature Visualization of YOLOv3 Keras Model
-A feature visualization tool for trained YOLOv3 models to gain better insight into how they perform classification and localization by generating saliency maps
+A feature visualization tool for trained YOLOv3 models to gain better insight into how they perform classification and localization by generating saliency maps. This tool also integrates various techniques during backpropagation, plain "vanilla" gradients, integrated gradients, guided backpropagation, and visual backpropagation, to produce saliency maps and identify specific features in the input pixel space which are influential in the model's classification and localization functionalities. 
+
 
 ## Motivation
 
