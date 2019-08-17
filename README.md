@@ -1,4 +1,4 @@
-# Visual Interpretability of YOLOv3 Keras Model with SatNet
+# Interpretable Feature Visualization of YOLOv3 Keras Model
 A feature visualization tool for trained YOLOv3 models to gain better insight into how they perform classification and localization by generating saliency maps
 
 ## Motivation
