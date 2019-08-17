@@ -29,7 +29,8 @@ Neural networks themselves are differentiable with respect to their inputs. To d
         - NOTE: If using guided backpropagation with a custom loss function you've made:
             1. Instantiate your custom loss function
             2. Pass your custom loss function into your compile() function
-            3. Before running guided backpropagation, enter: ```get_custom_objects().update({"compute_loss": <your_loss_function_here>,'tf':tf})```
+            3. Before running guided backpropagation, enter: 
+            ```get_custom_objects().update({"compute_loss": <your_loss_function_here>,'tf':tf})```
          
     
 ## Overview
