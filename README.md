@@ -33,14 +33,10 @@ Neural networks themselves are differentiable with respect to their inputs. To d
             ```
             get_custom_objects().update({"compute_loss": <your_loss_function_here>,'tf':tf})
             ```
-         
-    
-## Overview
-
-### YOLOv3
+## YOLOv3
 [YOLOv3 ](https://pjreddie.com/media/files/papers/YOLOv3.pdf)is a real-time object detection algorithm, which uses a deep convolutional neural network to classify and locate objects. In short, the motivation behind the application of YOLOv3 lies in the algorithm’s high frame rate. Exhibiting the best performance compared to other object detection models such as SSD (Single Shot Multibox Detector) or Faster R-CNN, YOLOv3 yields the capability to most accurately detect small objects and fine details in images.
 
-### Feature Visualization Methods
+## Feature Visualization Methods
 The methods implemented in this feature visualization tool derive from various techniques of backpropagating and calculating for gradients.
 
 #### Plain "Vanilla" Gradients
