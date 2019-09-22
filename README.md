@@ -1,6 +1,8 @@
 # Interpretable Feature Visualization of YOLOv3 Keras Model
 A feature visualization tool for a trained YOLOv3 model, a real-time object detection algorithm built on a deep convolutional network with a Darknet backbone. By integrating various techniques during backpropagation (plain "vanilla" gradients, integrated gradients, guided backpropagation, and visual backpropagation), this tool produces saliency maps to identify specific features in the input pixel space which are influential in the model's classification and localization functionalities. 
 
+Feel free to read the full blog post [here](https://medium.com/@jl22/feature-visualization-with-yolov3-fa133f15cae4)!
+
 
 ## Motivation
 
